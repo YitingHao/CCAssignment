@@ -1,2 +1,2 @@
 # CCAssignment
-My andrew ID: yitingh
+My andrew ID is yitingh
