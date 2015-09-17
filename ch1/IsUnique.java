@@ -1,3 +1,4 @@
+package Chapter1;
 /* Assumption: all the 256 symbols in ASCII table (extended) can show up in inputs.
  * Algorithms: 
  * Store info whether specific char appears before or not in 256 bits.
@@ -6,15 +7,16 @@
  * Running time complexity: O(n)
  * Space complexity: O(1)
 */
-public class Solution01 {
+public class IsUnique {
 	public static void main(String[] args) {
+		IsUnique test = new IsUnique();
 		// Two tests: the first has repeated char 'a'; while the second one does not.
 		String test1 = "aberad";
 		String test2 = "abgcheuy!_^@% *";
-		System.out.println(checkUnique(test1));
-		System.out.println(checkUnique(test2));
+		System.out.println(test.checkUnique(test1));
+		System.out.println(test.checkUnique(test2));
 	}
-	public static boolean checkUnique (String s)
+	public boolean checkUnique (String s)
 	{
 		// If the length is larger than 256, there will be definitely repeated char.
 		if (s.length() > 256)
