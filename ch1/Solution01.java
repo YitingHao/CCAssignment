@@ -1,13 +1,12 @@
-package Chapter1;
-// Assumption: all the 256 symbols in ASCII table (extended) can show up in inputs.
-/* Algorithms: 
+/* Assumption: all the 256 symbols in ASCII table (extended) can show up in inputs.
+ * Algorithms: 
  * Store info whether specific char appears before or not in 256 bits.
  * For example, if a char with ASCII 76 appears, 76th bit will be set as 1.
  * Then next time, if the same char appears again, I just need to check whether the bit corresponding to that char is 1 or 0.
  * Running time complexity: O(n)
  * Space complexity: O(1)
 */
-public class IsUnique {
+public class Solution01 {
 	public static void main(String[] args) {
 		// Two tests: the first has repeated char 'a'; while the second one does not.
 		String test1 = "aberad";
