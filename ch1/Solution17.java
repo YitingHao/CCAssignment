@@ -1,4 +1,3 @@
-package chapter1;
 /* 
  * Assumption: The matrix is N*N matrix.
  * Algorithm: To rotate matrix layer by layer. 
