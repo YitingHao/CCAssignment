@@ -1,4 +1,3 @@
-package chapter1;
 /* Assumption: 
  * Any symbols can show up in input. Assume string has enough space at the end to hold additional chars.
  * The true length is from the first char, which is not space, to the last char, which is not space.
