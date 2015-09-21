@@ -1,4 +1,3 @@
-package chapter2;
 /* 
  * Assumption: All inputs are valid. For example, in the list with only two elements, k won't be larger than two.
  * Algorithm: 
