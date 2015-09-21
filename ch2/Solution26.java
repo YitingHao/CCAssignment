@@ -1,4 +1,3 @@
-package chapter2;
 /*  
  * Algorithm: 
  * Reverse the list first and then compare the reverse one and original one.
