@@ -1,4 +1,3 @@
-package chapter1;
 /* Assumption: all the 256 symbols in ASCII table (extended) can show up in inputs.
  * Algorithms: 
  * Store info about whether specific char appears before or not in 256 bits.
