@@ -1,4 +1,3 @@
-package chapter1;
 /* 
  * Algorithm:If s2 is a rotation of s1, meaning s2 must be a substring of s1 + s1, where s1 + s1 represents
  * the string that writes s1 twice.
