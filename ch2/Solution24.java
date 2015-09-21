@@ -1,4 +1,3 @@
-package chapter2;
 /*  
  * Algorithm: Use three pointers. Pointer p goes through the list to check. Pointer head always points
  * to the head of the list, while pointer tail will always points to the end of the list. If the node
