@@ -1,4 +1,3 @@
-package chapter2;
 /* 
  * Assumption: Space is more important than running time. Save space as much as possible.
  * Algorithm: 
