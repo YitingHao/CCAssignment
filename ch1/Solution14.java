@@ -1,4 +1,3 @@
-package chapter1;
 /* Assumption: 
  * Only care about letters and ignore any other symbols. Not case-sensitive. For example, 'A' is same as 'a'.
  * Algorithm:
