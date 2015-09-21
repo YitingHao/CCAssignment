@@ -1,4 +1,3 @@
-
 /*  
  * Algorithm: 
  * Use the space in the first row and column to store info that whether this row or column has zero or not.
