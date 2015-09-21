@@ -1,4 +1,3 @@
-package chapter1;
 /*  
  * Algorithm: The length difference between two strings is 0 or 1. Get the minimum length of both strings.
  * Compare char in strings until we find mismatch. Since it only allows one edit, the rest part should be same.
