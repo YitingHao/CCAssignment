@@ -1,4 +1,3 @@
-package chapter2;
 /*  
  * Algorithm: Copy the next node's value to current one, and then remove the next node
  * Running time complexity: O(1)
