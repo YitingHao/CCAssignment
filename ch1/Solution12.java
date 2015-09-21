@@ -1,4 +1,3 @@
-package chapter1;
 /* Assumption: all the 256 symbols in ASCII table (extended) can show up in inputs.
  * Algorithms: 
  * Scan through the first string and store info in Hashtable about how many times one specific char has showed up.
