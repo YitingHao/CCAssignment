@@ -1,4 +1,3 @@
-package chapter2;
 /* 
  * Algorithm: 
  * If two lists intersect, it means the end node of both lists are the same node. This is method to judge
