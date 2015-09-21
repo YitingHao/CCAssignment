@@ -1,4 +1,3 @@
-package chapter1;
 /* 
  * Assumption: The string has only uppercase and lowercase letters.
  * Algorithm: Use a counter to indicator how many times the same letter shows up. 
