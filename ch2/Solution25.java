@@ -1,4 +1,3 @@
-package chapter2;
 /* 
  * Algorithm: 
  * For reverse summation: Start from the heads of two lists, add two digits up, change carry if needed,
