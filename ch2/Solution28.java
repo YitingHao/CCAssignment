@@ -1,4 +1,3 @@
-package chapter2;
 /* 
  * Algorithm: 
  * Use two pointers to detect the loop. The faster pointer moves twice faster than the slower one. 
