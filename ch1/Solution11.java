@@ -1,22 +1,19 @@
-package Chapter1;
+package chapter1;
 /* Assumption: all the 256 symbols in ASCII table (extended) can show up in inputs.
  * Algorithms: 
- * Store info whether specific char appears before or not in 256 bits.
+ * Store info about whether specific char appears before or not in 256 bits.
  * For example, if a char with ASCII 76 appears, 76th bit will be set as 1.
  * Then next time, if the same char appears again, I just need to check whether the bit corresponding to that char is 1 or 0.
  * Running time complexity: O(n)
  * Space complexity: O(1)
 */
-public class IsUnique {
+public class Solution11 {
 	public static void main(String[] args) {
-		IsUnique test = new IsUnique();
-		// Two tests: the first has repeated char 'a'; while the second one does not.
-		String test1 = "aberad";
-		String test2 = "abgcheuy!_^@% *";
-		System.out.println(test.checkUnique(test1));
-		System.out.println(test.checkUnique(test2));
+		Solution11 sol11 = new Solution11();
+		System.out.println("The string \"aberad\" is unique string? " + sol11.isUnique("aberad"));
+		System.out.println("The string \"abgcheuy!_^@% *\" is unique string? " + sol11.isUnique("abgcheuy!_^@% *"));
 	}
-	public boolean checkUnique (String s)
+	public boolean isUnique (String s)
 	{
 		// If the length is larger than 256, there will be definitely repeated char.
 		if (s.length() > 256)
