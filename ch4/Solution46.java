@@ -1,28 +1,46 @@
-// Modify to build up tree using another function called createBinarySearchTree
 package chapter4;
+/* 
+ * Algorithm: There are several different cases, which need to be considered careful. 1) node has right
+ * subtree; 2) node has no right child and it is the left child of its parents; 3) node has no right
+ * child and it is the right child of its parents.
+ * Running time complexity: O(log n), at most we need to go through each layer
+ * Space complexity: O(1)
+*/
 import java.util.*;
 public class Solution46 {
 	public static void main(String[] args) {
 		Solution46 sol46 = new Solution46();
+		// build up a binary tree
 		int[] values = new int[] {5,3,7,2,4,6,8,1};
-		Node root = sol46.createCompleteTree(values);
+		Node root = sol46.createTree(values);
+		// print out the tree
 		sol46.printTree(root);
+		// three tests
 		sol46.printOutNextNode(root.left);
 		sol46.printOutNextNode(root.left.right);
 		sol46.printOutNextNode(root.right.right);
 	}
+	// function to get next node in binary tree
 	Node nextNode (Node node)
 	{
+		// if node has right subtree, than find the smallest element in the right subtree.
+		// that is the next node we are looking for
 		if (node.right != null)
 		{
 			node = node.right;
 			while (node.left != null)
 				node = node.left;
 			return node;
-		} else if (node.parent.val > node.val)
+		} 
+		// if there is no right subtree and its parent is larger than the node (node is the left
+		// child of its parent), then return the parent
+		else if (node.parent.val > node.val)
 		{
 			return node.parent;
-		} else
+		} 
+		// if there is no right subtree and its parent is smaller than the node (node is the right
+		// child of its parent), return the leftmost ancestor.
+		else
 		{
 			while (node.parent != null)
 			{
@@ -35,7 +53,8 @@ public class Solution46 {
 			return node.parent;
 		}
 	}
-	Node createCompleteTree(int[] array)
+	// function to create tree based on the values from an array
+	Node createTree(int[] array)
 	{
 		if (array.length == 0) return null;
 		if (array.length == 1) return new Node(array[0]);
@@ -62,6 +81,7 @@ public class Solution46 {
 		}
 		return root;
 	}
+	// print out the tree layer by layer
 	void printTree(Node root)
 	{
 		if (root == null) return;
@@ -87,6 +107,7 @@ public class Solution46 {
 			System.out.println();
 		}
 	}
+	// function to print out next node, if it is the largest node, show related message
 	void printOutNextNode (Node node)
 	{
 		Node next = nextNode(node);
@@ -95,12 +116,14 @@ public class Solution46 {
 		else
 			System.out.println("This node, "+ node.val + ", is the node with largest value. No next node following.");
 	}
+	// Node class
 	class Node
 	{
 		int val;
 		Node left;
 		Node right;
 		Node parent;
+		// constructor
 		Node(int v) {val = v;}
 	}
 }
