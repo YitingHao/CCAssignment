@@ -3,7 +3,7 @@ package chapter4;
  * Algorithm: 
  * Check the height of each node first and then let the node with larger height goes several steps above.
  * The steps it takes equals to the difference between heights of two nodes. Then both nodes goes above
- * and they will meet at their first common ancestor
+ * and they will meet at their first common ancestor.
  * Running time complexity: O(log n)
  * Space complexity: O(1)
 */
@@ -13,31 +13,39 @@ public class Solution48 {
 		Solution48 sol48 = new Solution48();
 		int[] values = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14};
 		Node root = sol48.createTree(values, 6);
-		System.out.println("Print out the binary tree");
+		System.out.println("Print out the binary tree below");
 		sol48.printTree(root);
+		// one test
 		Node firstCommon = sol48.firstCommon(root, root.left.left.left.left.left, root.left.right.right);
 		System.out.print("The common ancestor of node 6 and node 12 is: ");
 		sol48.printOutResult(firstCommon);
 	}
+	// find common ancestor
 	Node firstCommon (Node root, Node n1, Node n2)
 	{
 		int height1 = 0;
 		int height2 = 0;
 		Node p = n1;
+		// get the height of node 1
 		while (p.parent != null)
 		{
 			p = p.parent;
 			height1 ++;
 		}
+		// if it is not in the tree, return null
 		if (p != root) return null;
 		p = n2;
+		// get the height of node 2
 		while (p.parent != null)
 		{
 			p = p.parent;
 			height2 ++;
 		}
+		// if it is not in the tree, return null
 		if (p != root) return null;
 		int diff = Math.abs(height1 - height2);
+		// let the one with higher height, move several steps forwards. The step it moves up equals to
+		// the difference of two heights
 		if (height1 > height2)
 		{
 			for (int i = 0; i < diff; i ++)
@@ -47,6 +55,7 @@ public class Solution48 {
 			for (int i = 0; i < diff; i ++)
 				n2 = n2.parent;
 		}
+		// then two node tracing back together, they will meet at the first ancestor
 		while (n1 != n2)
 		{
 			n1 = n1.parent;
@@ -54,6 +63,7 @@ public class Solution48 {
 		}
 		return n1;
 	}
+	// create a tree with given height
 	Node createTree (int[] array, int tHeight)
 	{
 		if (array.length == 0) return null;
@@ -100,6 +110,7 @@ public class Solution48 {
 		}
 		return root;
 	}
+	// print out tree layer by layer
 	void printTree(Node root)
 	{
 		if (root == null) return;
@@ -125,6 +136,7 @@ public class Solution48 {
 			System.out.println();
 		}
 	}
+	// print out result
 	void printOutResult(Node firstCommon)
 	{
 		if (firstCommon == null)
@@ -132,6 +144,7 @@ public class Solution48 {
 		else
 			System.out.println(firstCommon.val);
 	}
+	// Node class
 	class Node
 	{
 		int val;
