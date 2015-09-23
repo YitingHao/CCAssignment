@@ -1,4 +1,13 @@
 package chapter4;
+/* 
+ * Algorithm: Again we solve this problem recursively. If the root is the same, check both the right 
+ * subtree and left subtree. If not, change the main tree to be the left subtree of original main tree,
+ * and do the check again. If still not, change the main tree to be the right subtree of original main
+ * tree. If not, then this tree cannot be the subtree of the main tree
+ * Running time complexity: O(n+km), where k is the number of occurrences that root of subtree in main
+ * tree.
+ * Space complexity: O(log m + log n)
+*/
 import java.util.*;
 public class Solution410 {
 	public static void main(String[] args) {
@@ -6,39 +15,44 @@ public class Solution410 {
 		int[] valsMain = new int[]{1,2,4,8,3,5,6,7};
 		int[] valSub = new int[]{2,4,8,5};
 		Node mainT = sol410.createTree(valsMain, 4);
-		Node subT1 = sol410.createTree(valSub, 3);
+		System.out.println("Main tree structure");
 		sol410.printTree(mainT);
+		System.out.println();
+		// first test 
+		Node subT1 = sol410.createTree(valSub, 3);
+		System.out.println("The first subtree structure");
 		sol410.printTree(subT1);
-		System.out.println(sol410.isSubtree(mainT, subT1));
+		sol410.printResult(mainT, subT1);
+		// second test
 		valSub = new int[]{3,6,7};
 		Node subT2 = sol410.createTree(valSub, 2);
 		sol410.printTree(subT2);
-		System.out.println(sol410.isSubtree(mainT, subT2));
+		sol410.printResult(mainT, subT2);
+		// third test 
 		valSub = new int[]{1,2,8,3};
 		Node subT3 = sol410.createTree(valSub, 3);
 		sol410.printTree(subT3);
-		System.out.println(sol410.isSubtree(mainT, subT3));
+		sol410.printResult(mainT, subT3);
 	}
-	public boolean isSubtree (Node mainT, Node subT)
+//	function to check whether the second tree is the subtree of the first tree
+	boolean isSubtree (Node node, Node subT)
 	{
-		if (subT == null) return true;
-		if (checkMatch(mainT, subT))
-			return true;
-		return false;
-	}
-	boolean checkMatch (Node node, Node subT)
-	{
+		// base cases
 		if (node == null && subT == null)
 			return true;
 		else if (node == null || subT == null)
 			return false;
+		// if current root is same check both left and right subtree
 		else if(node.val == subT.val)
 		{
-			if (checkMatch(node.left, subT.left) && checkMatch(node.right, subT.right))
+			if (isSubtree(node.left, subT.left) && isSubtree(node.right, subT.right))
 				return true;
 		}
-		return checkMatch(node.left, subT) || checkMatch(node.right, subT);
+		// if it is not, check the left and right subtree of the main tree to see whether the second 
+		// tree is the subtree of these tree
+		return isSubtree(node.left, subT) || isSubtree(node.right, subT);
 	}
+	// create a binary tree
 	Node createTree (int[] array, int tHeight)
 	{
 		if (array.length == 0) return null;
@@ -85,6 +99,7 @@ public class Solution410 {
 		}
 		return root;
 	}
+	// print out tree layer by layer
 	void printTree(Node root)
 	{
 		if (root == null) return;
@@ -109,6 +124,12 @@ public class Solution410 {
 			next = new LinkedList<>();
 			System.out.println();
 		}
+	}
+	// print out result whether the second tree is the subtree of the first tree
+	void printResult (Node mainT, Node subtree)
+	{
+		System.out.println("Is the tree the subtree of main tree? " + isSubtree(mainT, subtree));
+		System.out.println();
 	}
 	class Node
 	{
