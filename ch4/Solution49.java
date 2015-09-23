@@ -1,4 +1,12 @@
 package chapter4;
+/* 
+ * Algorithm: The valid sequence must have root come first. This rule must apply to any subtree. So
+ * we can do this recursively. The most tricky thing is how to combine the subtree results. When
+ * combine, the rule that node must come first sholdn't change.
+ * Running time complexity: O(n^n)
+ * Space complexity: O(n^n)
+ * Note: Refer to the book solution
+*/
 import java.util.*;
 public class Solution49 {
 	public static void main(String[] args) {
@@ -9,9 +17,11 @@ public class Solution49 {
 		ArrayList<LinkedList<Integer>> result = sol49.possibleArray(BST);
 		sol49.printOutResult(result);
 	}
+	// get all possible array
 	ArrayList<LinkedList<Integer>> possibleArray(Node root)
 	{
 		ArrayList<LinkedList<Integer>> result = new ArrayList<>();
+		// base cases
 		if (root == null)
 		{
 			result.add(new LinkedList<Integer>());
@@ -24,10 +34,13 @@ public class Solution49 {
 			result.add(newList);
 			return result;
 		}
+		// recursively call to analyze the left subtree and the right subtree
 		ArrayList<LinkedList<Integer>> leftSub = possibleArray(root.left);
 		ArrayList<LinkedList<Integer>> rightSub = possibleArray(root.right);
+		// root need to show up first
 		LinkedList<Integer> prefix = new LinkedList<>();
 		prefix.add(root.val);
+		// generate all the possibilities
 		for (LinkedList<Integer> left : leftSub)
 			for (LinkedList<Integer> right : rightSub)
 			{
@@ -37,8 +50,10 @@ public class Solution49 {
 			}
 		return result;
 	}
+	// return all the possible combinations to combine list 1 and list with a prefix, which need to go first
 	void combineTwoLists (LinkedList<Integer> l1, LinkedList<Integer> l2, LinkedList<Integer> prefix, ArrayList<LinkedList<Integer>> combine)
 	{
+		// base case: if one list is empty
 		if (l1.size() == 0 || l2.size() == 0)
 		{
 			LinkedList<Integer> addTogether = new LinkedList<>();
@@ -48,22 +63,29 @@ public class Solution49 {
 			combine.add(addTogether);
 			return;
 		}
+		// remove on element from the first list and add it into prefix
 		int temp = l1.removeFirst();
 		prefix.addLast(temp);
+		// recursively call the function
 		combineTwoLists(l1, l2, prefix, combine);
+		// restore
 		prefix.removeLast();
 		l1.addFirst(temp);
-		
+		// remove on element from the second list and add it into prefix
 		temp = l2.removeFirst();
 		prefix.addLast(temp);
+		// recursively call the function
 		combineTwoLists(l1, l2, prefix, combine);
+		// restore
 		prefix.removeLast();
 		l2.addFirst(temp);
 	}
+	// create a binary tree
 	Node creatBST (int[] array)
 	{
 		return creatBST (array, 0, array.length - 1);
 	}
+	// overload
 	Node creatBST (int[] array, int start, int end)
 	{
 		if (start <= end)
@@ -76,12 +98,14 @@ public class Solution49 {
 		}
 		return null;
 	}
+	// print out multiple list 
 	void printOutResult (ArrayList<LinkedList<Integer>> result)
 	{
 		for (int i = 0; i < result.size(); i ++)
-			pointList(result.get(i));
+			printList(result.get(i));
 	}
-	void pointList (LinkedList<Integer> list)
+	// print out one list
+	void printList (LinkedList<Integer> list)
 	{
 		System.out.print("{");
 		for (int i = 0; i < list.size(); i ++)
@@ -92,6 +116,7 @@ public class Solution49 {
 		}
 		System.out.print("}  ");
 	}
+	// print out the tree
 	void printOutTree (Node root)
 	{
 		if (root == null) return;
@@ -119,6 +144,7 @@ public class Solution49 {
 			System.out.println();
 		}
 	}
+	// Node class
 	class Node
 	{
 		int val;
