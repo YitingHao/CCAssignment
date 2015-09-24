@@ -1,7 +1,11 @@
 package chapter4;
-
+/* 
+ * Algorithm: 
+ * Do this recursively. Find the mid element to be the root.
+ * Running time complexity: O(log n)
+ * Space complexity: O(n)
+*/
 import java.util.*;
-
 public class Solution42 {
 	public static void main(String[] args) {
 		Solution42 sol42 = new Solution42();
