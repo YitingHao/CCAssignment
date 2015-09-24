@@ -61,6 +61,7 @@ public class Solution36 {
 		{
 			return cats.poll();
 		}
+		// function to set dog queue
 		void setDogDate(String[] dogsDate)
 		{
 			for (int i = 0; i < dogsDate.length; i ++)
@@ -69,6 +70,7 @@ public class Solution36 {
 				dogs.add(newDog);
 			}
 		}
+		// function to set cat queue
 		void setCatDate(String[] catsDate)
 		{
 			for (int i = 0; i < catsDate.length; i ++)
@@ -77,6 +79,7 @@ public class Solution36 {
 				cats.add(newCat);
 			}
 		}
+		// Turn string to Date Object
 		Date strToDate (String s)
 		{
 			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -89,7 +92,7 @@ public class Solution36 {
 			return dateObject;
 		}
 	}
-	
+	// Animal class definition
 	class Animal
 	{
 		private Date date;
@@ -101,11 +104,13 @@ public class Solution36 {
 		public String getName() {return category;}
 		public boolean earlier (Date d) {return date.before(d);}
 	}
+	// Animal Dog definition extend from Animal claa
 	class Dog extends Animal
 	{
 		Dog() {}
 		Dog(String name, Date d) {super(name, d);}
 	}
+	// Animal Cat definition extend from Animal claa
 	class Cat extends Animal
 	{
 		Cat() {}
