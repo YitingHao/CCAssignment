@@ -1,13 +1,24 @@
 package chapter4;
+/* 
+ * Assumption: One node also consider as a path
+ * Algorithm: 
+ * Save the running summation in a hashMap. Running summation means the summation of the path from one node
+ * to another node. Each path I just need to find whether there is running summation that appears before, is
+ * equals to the current running summation minus the target summation. Overall, we do this recursively.
+ * Running time complexity: O(n)
+ * Space complexity: O(n)
+*/
 import java.util.*;
 public class Solution412 {
 	public static void main(String[] args) {
 		Solution412 sol412 = new Solution412();
 		int[] values = new int[]{10,5,-3,3,1,11,3,-2,2};
 		Node root = sol412.createTree(values);
+		System.out.println("Print out the binary tree: ");
 		sol412.printOut(root);
-		System.out.println();
 		sol412.printSumResult(5, root);
+		sol412.printSumResult(10, root);
+		sol412.printSumResult(1, root);
 	}
 	int pathsWithSum (Node root, int targetSum)
 	{
