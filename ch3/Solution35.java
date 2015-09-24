@@ -16,12 +16,15 @@ public class Solution35 {
 	public static void main(String[] args) {
 		Solution35 sol35 = new Solution35();
 		int[] values = new int[] {21,2,34,41,5,6,73,8,94,10};
+		// sort stack
 		Stack<Integer> stack = sol35.sortStack(sol35.createStack(values));
+		// print out every stack element
 		while (!stack.isEmpty())
 		{
-			System.out.println(stack.pop());
+			System.out.print(stack.pop() + " ");
 		}
 	}
+	// sort stack function
 	private Stack<Integer> sortStack (Stack<Integer> stack)
 	{
 		Stack<Integer> secondStack = new Stack<>();
@@ -43,6 +46,7 @@ public class Solution35 {
 				secondStack.push(stack.pop());
 			}
 		}
+		// move all elements back to primary stack, then you will get an increasing order
 		while (!secondStack.isEmpty())
 		{
 			stack.push(secondStack.pop());
