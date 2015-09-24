@@ -26,6 +26,7 @@ public class Solution32 {
 		test.pop();
 		System.out.println("Pop out two elments out of stack. Now the minimun is " + test.minimum());
 	}
+	// stackMin class, which has an additional minimum function
 	class stackMin
 	{
 		private ListNode head = new ListNode(0);
