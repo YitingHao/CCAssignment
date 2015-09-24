@@ -1,12 +1,22 @@
 package chapter4;
+/* 
+ * Algorithm: 
+ * Check the height of each node first and then let the node with larger height goes several steps above.
+ * The steps it takes equals to the difference between heights of two nodes. Then both nodes goes above
+ * and they will meet at their first common ancestor
+ * Running time complexity: O(log n)
+ * Space complexity: O(1)
+*/
 import java.util.*;
 public class Solution48 {
 	public static void main(String[] args) {
 		Solution48 sol48 = new Solution48();
 		int[] values = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14};
 		Node root = sol48.createTree(values, 6);
+		System.out.println("Print out the binary tree");
 		sol48.printTree(root);
 		Node firstCommon = sol48.firstCommon(root, root.left.left.left.left.left, root.left.right.right);
+		System.out.print("The common ancestor of node 6 and node 12 is: ");
 		sol48.printOutResult(firstCommon);
 	}
 	Node firstCommon (Node root, Node n1, Node n2)
