@@ -15,25 +15,30 @@ public class Solution36 {
 		String[] dogsDate = new String[] {"1989-11-23", "2001-01-13", "2004-03-04"};
 		test.setCatDate(catsDate);
 		test.setDogDate(dogsDate);
-		
+		// add one more dog
 		test.enqueue(sol36.new Dog("Dog", test.strToDate("2011-02-03")));
-		System.out.print("Enqueue: ");
+		// show results after enqueue one dog
+		System.out.print("Enqueue of Dogs: ");
 		for (Dog each : test.dogs)
 			System.out.print(each.getDate() + "     ");
 		System.out.println();
 		Animal temp = sol36.new Animal();
+		// test the function to get one cat from queue
 		temp = test.dequeueCats();
 		System.out.println("DequeueCats: "+ temp.getName() + " - " + temp.getDate());
+		// test the function to get one dog from queue
 		temp = test.dequeueDogs();
 		System.out.println("DequeueDogs: " + temp.getName() + " - " + temp.getDate());
+		// test the function to get one animal, no matter dog or cat, from queue
 		temp = test.dequeueAny();
 		System.out.println("DequeueAny: " + temp.getName() + " - " + temp.getDate());
 	}
-	
+	// aminalQueue class, which includes both Dogs queue and Cats queue
 	class AnimalQueue
 	{
 		LinkedList<Dog> dogs = new LinkedList<>();
 		LinkedList<Cat> cats = new LinkedList<>();
+		// add more animal into queue
 		void enqueue (Animal animal)
 		{
 			if (animal instanceof Dog)
@@ -41,7 +46,7 @@ public class Solution36 {
 			else if (animal instanceof Cat)
 				cats.add((Cat) animal);
 		}
-		// Constructor
+		// get any animal from queue
 		Animal dequeueAny ()
 		{
 			if (dogs.size() == 0)
@@ -53,10 +58,12 @@ public class Solution36 {
 			else
 				return cats.poll();
 		}
+		// get one dog
 		Dog dequeueDogs ()
 		{
 			return dogs.poll();
 		}
+		// get on cat
 		Cat dequeueCats ()
 		{
 			return cats.poll();
@@ -104,13 +111,13 @@ public class Solution36 {
 		public String getName() {return category;}
 		public boolean earlier (Date d) {return date.before(d);}
 	}
-	// Animal Dog definition extend from Animal claa
+	// Animal Dog definition extend from Animal class
 	class Dog extends Animal
 	{
 		Dog() {}
 		Dog(String name, Date d) {super(name, d);}
 	}
-	// Animal Cat definition extend from Animal claa
+	// Animal Cat definition extend from Animal class
 	class Cat extends Animal
 	{
 		Cat() {}
