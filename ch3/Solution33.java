@@ -91,7 +91,7 @@ public class Solution33 {
 			}
 			return (int) stacks.get(stacks.size() - 1).peek();
 		}
-		// pop out elements in chosen stack
+		// pop out elements in chosen stack (The follow up problem)
 		private int popAt (int index)
 		{
 			// if the chosen stack is empty, return MIN value
