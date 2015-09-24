@@ -1,4 +1,10 @@
 package chapter4;
+/* 
+ * Algorithm: 
+ * Typical breadth first search.
+ * Running time complexity: O(log n)
+ * Space complexity: O(n)
+*/
 import java.util.*;
 public class Solution41 {
 	public static void main(String[] args) {
@@ -6,11 +12,11 @@ public class Solution41 {
 		int NodeNum = 5;
 		int[][] routes = new int[][] {{2,4},{4},{2},{5},{2}};
 		Graph graph = sol41.new Graph(NodeNum, routes);
-		System.out.println(graph.checkRoute(graph.nodes[0], graph.nodes[4]));
+		System.out.println("Route beteween node 1 to 5? " + graph.checkRoute(graph.nodes[0], graph.nodes[4]));
 		graph.reset();
-		System.out.println(graph.checkRoute(graph.nodes[1], graph.nodes[4]));
+		System.out.println("Route beteween node 2 to 5? " + graph.checkRoute(graph.nodes[1], graph.nodes[4]));
 		graph.reset();
-		System.out.println(graph.checkRoute(graph.nodes[2], graph.nodes[0]));
+		System.out.println("Route beteween node 3 to 1? " + graph.checkRoute(graph.nodes[2], graph.nodes[0]));
 	}
 	class Graph
 	{
@@ -30,6 +36,7 @@ public class Solution41 {
 		public boolean checkRoute (Node start, Node end)
 		{
 			if (start == end) return true;
+			// Put children node in the queue
 			Queue<Node> q = new LinkedList<>();
 			q.offer(start);
 			start.visit = true;
