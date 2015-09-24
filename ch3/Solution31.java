@@ -20,10 +20,12 @@ public class Solution31 {
 		test.pintPop(test.pop(0));
 		test.pintPop(test.pop(0));
 		test.pintPop(test.pop(0));
+		System.out.println();
 		// Operation on the second stack
 		System.out.println("Put one element in the 2nd stack and then peek:");
 		test.push(21, 1);
 		System.out.println(test.peek(1));
+		System.out.println();
 		// Operation on the third stack
 		System.out.println("Put five elements in the 3rd stack and then pop three times, the last push will return a message:");
 		test.push(31, 2);
