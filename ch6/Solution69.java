@@ -6,5 +6,5 @@
  * However, if a number is a perfect square, for example 36, which has factors 1,2,3,4,6,9,12,18,36. Since
  * 6 * 6 = 36, 36 has odd number of factors, meaning it will be toggled odd times. Since original status is
  * close, after odd number toggling, it will be open.
- * Therefore, the lock 1,4,9,16,25,36,49,64,81,100 will be open at hte end of this process.
+ * Therefore, the lock 1,4,9,16,25,36,49,64,81,100 will be open at the end of this process.
 */
